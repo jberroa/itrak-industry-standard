@@ -1,0 +1,20 @@
+# Coolify injects PORT and routing; omit host port mappings here.
+# SQLite lives in the named volume so data survives container restarts.
+
+services:
+  app:
+    build:
+      context: .
+      target: prod
+    command: npm start
+    environment:
+      - NODE_ENV=production
+      # Coolify sets PORT; default matches EXPOSE for local compose.
+      - PORT=${PORT:-3000}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - SQLITE_PATH=${SQLITE_PATH:-/data/medama.db}
+    volumes:
+      - medama_sqlite:/data
+
+volumes:
+  medama_sqlite:

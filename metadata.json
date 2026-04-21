@@ -1,0 +1,5 @@
+{
+  "name": "Medama ITRAK Industry Standard Assistant",
+  "description": "Calculate FTE and management requirements based on ISSA cleaning standards using AI-powered room analysis and document parsing.",
+  "requestFramePermissions": ["camera"]
+}
